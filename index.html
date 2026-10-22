@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Cajero</title>
-     <script src="js/main.js" defer></script>
+     <script src="js/datos.js" defer></script>
+     <script src="js/logica.js" defer></script>
+     <script src="js/interfaz.js" defer></script>
      <link rel="stylesheet" href="css/style.css">
    
 </head>
@@ -72,8 +74,8 @@
 
             <form id="formulario-cambio-clave-usuario" class="ingreso oculto">
                 <h2>Cambiar clave</h2>
-                <label for="input-nueva-clave-usuario">Nueva clave de 4 dígitos</label>
-                <input id="input-nueva-clave-usuario" type="password" autocomplete="new-password">
+                <label for="input-nueva-clave-usuario">Nueva clave numérica de 4 dígitos</label>
+                <input id="input-nueva-clave-usuario" type="password" maxlength="4" autocomplete="new-password">
 
                 <div class="menu">
                     <button id="btn-guardar-clave-usuario" type="submit">Guardar clave</button>
@@ -95,6 +97,14 @@
 
             <div id="contenedor-movimientos" class="resultado oculto">
                 <h2>Movimientos de la cuenta</h2>
+                <div class="ingreso">
+                    <label for="select-filtro-movimientos">Mostrar movimientos</label>
+                    <select id="select-filtro-movimientos" autocomplete="off">
+                        <option value="">Todos</option>
+                        <option value="Depósito">Ingresos</option>
+                        <option value="Extracción">Egresos</option>
+                    </select>
+                </div>
                 <p id="saldo-inicial-movimientos"></p>
                 <p id="saldo-referencia-movimientos"></p>
                 <div id="lista-movimientos"></div>
@@ -134,7 +144,7 @@
             <form id="formulario-registro-usuario" class="ingreso oculto">
                 <h2>Registrar nuevo usuario</h2>
                 <label for="input-usuario-registro">Usuario</label>
-                <input id="input-usuario-registro" type="text" autocomplete="off">
+                <input id="input-usuario-registro" type="text" maxlength="20" autocomplete="off">
 
                 <label for="input-clave-registro">Clave de 4 dígitos</label>
                 <input id="input-clave-registro" type="password" autocomplete="new-password">
@@ -173,8 +183,8 @@
                 <input id="input-usuario-cambio-clave" type="number" min="1" step="1" autocomplete="off" aria-describedby="mensaje-usuario-cambio-clave">
                 <p id="mensaje-usuario-cambio-clave" aria-live="polite"></p>
 
-                <label for="input-nueva-clave">Nueva clave de 4 dígitos</label>
-                <input id="input-nueva-clave" type="password" autocomplete="new-password">
+                <label for="input-nueva-clave">Nueva clave numérica de 4 dígitos</label>
+                <input id="input-nueva-clave" type="password" maxlength="4" autocomplete="new-password">
 
                 <div class="menu">
                     <button id="btn-guardar-clave" type="submit">Guardar clave</button>
